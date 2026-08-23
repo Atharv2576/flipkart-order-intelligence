@@ -1,0 +1,72 @@
+[
+  {
+    "filename": "09_ankle_boot.png",
+    "class": "Ankle boot",
+    "class_index": 9,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 0
+  },
+  {
+    "filename": "02_pullover.png",
+    "class": "Pullover",
+    "class_index": 2,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 1
+  },
+  {
+    "filename": "01_trouser.png",
+    "class": "Trouser",
+    "class_index": 1,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 2
+  },
+  {
+    "filename": "06_shirt.png",
+    "class": "Shirt",
+    "class_index": 6,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 4
+  },
+  {
+    "filename": "04_coat.png",
+    "class": "Coat",
+    "class_index": 4,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 6
+  },
+  {
+    "filename": "05_sandal.png",
+    "class": "Sandal",
+    "class_index": 5,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 8
+  },
+  {
+    "filename": "07_sneaker.png",
+    "class": "Sneaker",
+    "class_index": 7,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 9
+  },
+  {
+    "filename": "03_dress.png",
+    "class": "Dress",
+    "class_index": 3,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 13
+  },
+  {
+    "filename": "08_bag.png",
+    "class": "Bag",
+    "class_index": 8,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 18
+  },
+  {
+    "filename": "00_t-shirt_top.png",
+    "class": "T-shirt/top",
+    "class_index": 0,
+    "source": "Fashion-MNIST test split",
+    "test_split_index": 19
+  }
+]

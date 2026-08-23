@@ -1,0 +1,44 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Policy question answered via RAG (2 of 2)
+Demonstrates : Task 9(a) -- a second, different policy question via retrieval
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: When will I get my refund if I paid cash on delivery?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "What is the refund timeline for a cash on delivery order?"
+   example intent  : policy
+   similarity      : 0.8691
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : policy
+   runner-up       : "How many days do I have to return a mobile phone?" (policy) @ 0.3746
+   runner-up       : "How long does delivery usually take to a non-metro city?" (policy) @ 0.3532
+   order id        : None
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- RETRIEVAL NODE (top documents, deduped from top-3 chunks) --
+   [0.6046] POL06_cod_refund_timeline :: "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card."
+
+-- OUTPUT GUARDRAIL (groundedness check) --
+   best similarity : 0.6046
+   threshold       : 0.5
+   grounded        : True
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> retrieval_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card. [Source: Cash on Delivery Refund Timeline (POL06_cod_refund_timeline)]",
+  "source": "policy_kb",
+  "confidence": 0.6046
+}

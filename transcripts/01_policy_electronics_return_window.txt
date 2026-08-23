@@ -1,0 +1,46 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Policy question answered via RAG (1 of 2)
+Demonstrates : Task 9(a) -- a policy question routed to retrieval and answered from the knowledge base
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: How many days do I have to return a mobile phone?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "How many days do I have to return a mobile phone?"
+   example intent  : policy
+   similarity      : 1.0
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : policy
+   runner-up       : "What is the refund timeline for a cash on delivery order?" (policy) @ 0.3716
+   runner-up       : "Can I return a beauty product I already opened?" (policy) @ 0.3196
+   order id        : None
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- RETRIEVAL NODE (top documents, deduped from top-3 chunks) --
+   [0.6357] POL03_electronics_return_window :: "Electronics such as mobile phones, laptops, headphones and smart watches can be returned within 10 days of delivery."
+   [0.4604] POL04_home_return_window :: "Home and kitchen products such as cookware, bedsheets, curtains and small storage items can be returned within 10 days of delivery."
+   [0.4519] POL05_beauty_return_window :: "Beauty and personal care items can be returned within 7 days of delivery only if the factory seal is unbroken."
+
+-- OUTPUT GUARDRAIL (groundedness check) --
+   best similarity : 0.6357
+   threshold       : 0.5
+   grounded        : True
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> retrieval_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "Electronics such as mobile phones, laptops, headphones and smart watches can be returned within 10 days of delivery. [Source: Electronics Return Window (POL03_electronics_return_window)] [Related policies: Home and Kitchen Return Window (POL04_home_return_window), Beauty and Personal Care Return Window (POL05_beauty_return_window)]",
+  "source": "policy_kb",
+  "confidence": 0.6357
+}

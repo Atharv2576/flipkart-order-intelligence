@@ -1,0 +1,57 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Product-category question calling the real Part 2 model
+Demonstrates : Task 9(c) -- classify_product_image called against a real committed .png
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: What category does this product photo belong to?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "What category does this product photo belong to?"
+   example intent  : product_category
+   similarity      : 1.0
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : product_category
+   runner-up       : "Identify the catalogue category of this image." (product_category) @ 0.7911
+   runner-up       : "What kind of item is in this uploaded photo?" (product_category) @ 0.6811
+   order id        : None
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- TOOL NODE (image_classifier_tool) --
+   {
+  "predicted_class": "Sneaker",
+  "confidence": 0.9982,
+  "top3": [
+    {
+      "class": "Sneaker",
+      "confidence": 0.9982
+    },
+    {
+      "class": "Ankle boot",
+      "confidence": 0.0015
+    },
+    {
+      "class": "Sandal",
+      "confidence": 0.0003
+    }
+  ],
+  "image_path": "data/sample_images/07_sneaker.png"
+}
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> tool_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "This looks like a Sneaker (confidence 99.82%).",
+  "source": "image_classifier_tool",
+  "confidence": 0.9982
+}

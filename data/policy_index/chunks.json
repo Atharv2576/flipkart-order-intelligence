@@ -1,0 +1,282 @@
+[
+  {
+    "chunk_id": "POL01_apparel_return_window::s00",
+    "document_id": "POL01_apparel_return_window",
+    "document_title": "Apparel Return Window",
+    "chunk_index": 0,
+    "chunk_text": "Clothing items such as shirts, dresses, trousers and ethnic wear can be returned within 15 days of delivery."
+  },
+  {
+    "chunk_id": "POL01_apparel_return_window::s01",
+    "document_id": "POL01_apparel_return_window",
+    "document_title": "Apparel Return Window",
+    "chunk_index": 1,
+    "chunk_text": "The item must be unworn, unwashed, and returned with its original tags and packaging intact."
+  },
+  {
+    "chunk_id": "POL01_apparel_return_window::s02",
+    "document_id": "POL01_apparel_return_window",
+    "document_title": "Apparel Return Window",
+    "chunk_index": 2,
+    "chunk_text": "Innerwear, socks, and any apparel explicitly marked \"non-returnable\" on the product page are excluded from this window."
+  },
+  {
+    "chunk_id": "POL02_footwear_return_window::s00",
+    "document_id": "POL02_footwear_return_window",
+    "document_title": "Footwear Return Window",
+    "chunk_index": 0,
+    "chunk_text": "Shoes, sandals and sneakers can be returned within 12 days of delivery, provided the sole shows no signs of outdoor wear."
+  },
+  {
+    "chunk_id": "POL02_footwear_return_window::s01",
+    "document_id": "POL02_footwear_return_window",
+    "document_title": "Footwear Return Window",
+    "chunk_index": 1,
+    "chunk_text": "The original shoebox must be returned alongside the product, since a damaged or missing shoebox reduces resale value and may result in a partial refund."
+  },
+  {
+    "chunk_id": "POL02_footwear_return_window::s02",
+    "document_id": "POL02_footwear_return_window",
+    "document_title": "Footwear Return Window",
+    "chunk_index": 2,
+    "chunk_text": "Customised or made-to-order footwear is not eligible for return."
+  },
+  {
+    "chunk_id": "POL03_electronics_return_window::s00",
+    "document_id": "POL03_electronics_return_window",
+    "document_title": "Electronics Return Window",
+    "chunk_index": 0,
+    "chunk_text": "Electronics such as mobile phones, laptops, headphones and smart watches can be returned within 10 days of delivery."
+  },
+  {
+    "chunk_id": "POL03_electronics_return_window::s01",
+    "document_id": "POL03_electronics_return_window",
+    "document_title": "Electronics Return Window",
+    "chunk_index": 1,
+    "chunk_text": "All original accessories, chargers, manuals and the outer box must be included for the return to be accepted."
+  },
+  {
+    "chunk_id": "POL03_electronics_return_window::s02",
+    "document_id": "POL03_electronics_return_window",
+    "document_title": "Electronics Return Window",
+    "chunk_index": 2,
+    "chunk_text": "Activated SIM-based devices are subject to an additional deactivation check before the refund is approved."
+  },
+  {
+    "chunk_id": "POL04_home_return_window::s00",
+    "document_id": "POL04_home_return_window",
+    "document_title": "Home and Kitchen Return Window",
+    "chunk_index": 0,
+    "chunk_text": "Home and kitchen products such as cookware, bedsheets, curtains and small storage items can be returned within 10 days of delivery."
+  },
+  {
+    "chunk_id": "POL04_home_return_window::s01",
+    "document_id": "POL04_home_return_window",
+    "document_title": "Home and Kitchen Return Window",
+    "chunk_index": 1,
+    "chunk_text": "Items must be unused and in their original packaging, since hygiene and safety checks apply to anything that contacts food or bedding."
+  },
+  {
+    "chunk_id": "POL04_home_return_window::s02",
+    "document_id": "POL04_home_return_window",
+    "document_title": "Home and Kitchen Return Window",
+    "chunk_index": 2,
+    "chunk_text": "Assembled furniture is handled under a separate large-item return process and is not covered by this window."
+  },
+  {
+    "chunk_id": "POL05_beauty_return_window::s00",
+    "document_id": "POL05_beauty_return_window",
+    "document_title": "Beauty and Personal Care Return Window",
+    "chunk_index": 0,
+    "chunk_text": "Beauty and personal care items can be returned within 7 days of delivery only if the factory seal is unbroken."
+  },
+  {
+    "chunk_id": "POL05_beauty_return_window::s01",
+    "document_id": "POL05_beauty_return_window",
+    "document_title": "Beauty and Personal Care Return Window",
+    "chunk_index": 1,
+    "chunk_text": "Once a seal is opened, the product cannot be resold for hygiene reasons and becomes non-returnable, though a replacement may still be issued for a genuinely defective unit."
+  },
+  {
+    "chunk_id": "POL05_beauty_return_window::s02",
+    "document_id": "POL05_beauty_return_window",
+    "document_title": "Beauty and Personal Care Return Window",
+    "chunk_index": 2,
+    "chunk_text": "Gift sets are treated as a single unit and cannot be partially returned."
+  },
+  {
+    "chunk_id": "POL06_cod_refund_timeline::s00",
+    "document_id": "POL06_cod_refund_timeline",
+    "document_title": "Cash on Delivery Refund Timeline",
+    "chunk_index": 0,
+    "chunk_text": "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card."
+  },
+  {
+    "chunk_id": "POL06_cod_refund_timeline::s01",
+    "document_id": "POL06_cod_refund_timeline",
+    "document_title": "Cash on Delivery Refund Timeline",
+    "chunk_index": 1,
+    "chunk_text": "The refund is initiated within 2 business days after the returned item passes quality inspection, and bank transfers typically settle within 5-7 additional business days."
+  },
+  {
+    "chunk_id": "POL06_cod_refund_timeline::s02",
+    "document_id": "POL06_cod_refund_timeline",
+    "document_title": "Cash on Delivery Refund Timeline",
+    "chunk_index": 2,
+    "chunk_text": "Wallet refunds are usually instant once the return is approved."
+  },
+  {
+    "chunk_id": "POL07_prepaid_refund_timeline::s00",
+    "document_id": "POL07_prepaid_refund_timeline",
+    "document_title": "Prepaid Refund Timeline",
+    "chunk_index": 0,
+    "chunk_text": "For orders paid by card, UPI or net banking, the refund is reversed to the original payment method within 2 business days of the return passing quality inspection."
+  },
+  {
+    "chunk_id": "POL07_prepaid_refund_timeline::s01",
+    "document_id": "POL07_prepaid_refund_timeline",
+    "document_title": "Prepaid Refund Timeline",
+    "chunk_index": 1,
+    "chunk_text": "Card refunds may take a further 5-9 business days to reflect on the statement depending on the issuing bank, while UPI and net-banking refunds usually settle within 2-4 business days."
+  },
+  {
+    "chunk_id": "POL08_delivery_sla::s00",
+    "document_id": "POL08_delivery_sla",
+    "document_title": "Delivery Service-Level Agreement",
+    "chunk_index": 0,
+    "chunk_text": "Standard delivery to a metro address is estimated at 2-4 business days from dispatch, and 5-8 business days for non-metro or remote pin codes."
+  },
+  {
+    "chunk_id": "POL08_delivery_sla::s01",
+    "document_id": "POL08_delivery_sla",
+    "document_title": "Delivery Service-Level Agreement",
+    "chunk_index": 1,
+    "chunk_text": "The exact estimate shown at checkout accounts for the seller's dispatch location, the destination pin code, and current courier load."
+  },
+  {
+    "chunk_id": "POL08_delivery_sla::s02",
+    "document_id": "POL08_delivery_sla",
+    "document_title": "Delivery Service-Level Agreement",
+    "chunk_index": 2,
+    "chunk_text": "Express delivery, where available, is estimated at 1-2 business days for an additional fee."
+  },
+  {
+    "chunk_id": "POL09_delayed_delivery::s00",
+    "document_id": "POL09_delayed_delivery",
+    "document_title": "Delayed Delivery",
+    "chunk_index": 0,
+    "chunk_text": "If a shipment has not moved for more than 2 days past its estimated delivery date, the order is flagged as delayed and the customer can request a status update or cancellation without penalty."
+  },
+  {
+    "chunk_id": "POL09_delayed_delivery::s01",
+    "document_id": "POL09_delayed_delivery",
+    "document_title": "Delayed Delivery",
+    "chunk_index": 1,
+    "chunk_text": "A delayed order that is subsequently cancelled receives a full refund regardless of the payment method used."
+  },
+  {
+    "chunk_id": "POL09_delayed_delivery::s02",
+    "document_id": "POL09_delayed_delivery",
+    "document_title": "Delayed Delivery",
+    "chunk_index": 2,
+    "chunk_text": "Repeated delays on the same shipment are escalated internally to the logistics partner."
+  },
+  {
+    "chunk_id": "POL10_reverse_pickup_eligibility::s00",
+    "document_id": "POL10_reverse_pickup_eligibility",
+    "document_title": "Reverse Pickup Eligibility",
+    "chunk_index": 0,
+    "chunk_text": "Reverse pickup, where a courier collects the item from the customer's address, is available for most pin codes covered by Flipkart's own logistics network."
+  },
+  {
+    "chunk_id": "POL10_reverse_pickup_eligibility::s01",
+    "document_id": "POL10_reverse_pickup_eligibility",
+    "document_title": "Reverse Pickup Eligibility",
+    "chunk_index": 1,
+    "chunk_text": "In pin codes without reverse pickup coverage, the customer must self-ship the item to the address provided in the return instructions, and shipping cost is reimbursed on approval of the return."
+  },
+  {
+    "chunk_id": "POL11_reverse_pickup_process::s00",
+    "document_id": "POL11_reverse_pickup_process",
+    "document_title": "Reverse Pickup Process and Timeline",
+    "chunk_index": 0,
+    "chunk_text": "Once a return is approved, a pickup is scheduled within 1-2 business days and the courier makes up to 2 attempts before the return is marked failed."
+  },
+  {
+    "chunk_id": "POL11_reverse_pickup_process::s01",
+    "document_id": "POL11_reverse_pickup_process",
+    "document_title": "Reverse Pickup Process and Timeline",
+    "chunk_index": 1,
+    "chunk_text": "The collected item reaches the quality-inspection facility within 3-5 business days of pickup, and the refund clock described in the payment-specific refund policies only starts once that inspection passes."
+  },
+  {
+    "chunk_id": "POL12_damaged_product::s00",
+    "document_id": "POL12_damaged_product",
+    "document_title": "Damaged Product on Arrival",
+    "chunk_index": 0,
+    "chunk_text": "A product that arrives visibly damaged or crushed must be reported within 48 hours of delivery through the order's \"Report an issue\" option."
+  },
+  {
+    "chunk_id": "POL12_damaged_product::s01",
+    "document_id": "POL12_damaged_product",
+    "document_title": "Damaged Product on Arrival",
+    "chunk_index": 1,
+    "chunk_text": "Photographic evidence of the damage and the packaging speeds up approval, and a damaged-on-arrival claim skips the standard return window restrictions since the fault is not the customer's."
+  },
+  {
+    "chunk_id": "POL13_wrong_product::s00",
+    "document_id": "POL13_wrong_product",
+    "document_title": "Wrong Product Received",
+    "chunk_index": 0,
+    "chunk_text": "If the item received does not match what was ordered, the customer should report it within 3 days of delivery rather than filing a routine return."
+  },
+  {
+    "chunk_id": "POL13_wrong_product::s01",
+    "document_id": "POL13_wrong_product",
+    "document_title": "Wrong Product Received",
+    "chunk_index": 1,
+    "chunk_text": "A wrong-item claim is prioritised over standard returns, does not count against the product's normal return window, and typically results in either a free replacement or a full refund at the customer's choice."
+  },
+  {
+    "chunk_id": "POL14_order_cancellation::s00",
+    "document_id": "POL14_order_cancellation",
+    "document_title": "Order Cancellation",
+    "chunk_index": 0,
+    "chunk_text": "An order can be cancelled free of charge any time before it is marked \"shipped.\" Once a courier has picked up the package, the order can no longer be cancelled and must instead go through the standard return process after delivery."
+  },
+  {
+    "chunk_id": "POL14_order_cancellation::s01",
+    "document_id": "POL14_order_cancellation",
+    "document_title": "Order Cancellation",
+    "chunk_index": 1,
+    "chunk_text": "Prepaid orders cancelled before shipping are refunded in full within 2 business days."
+  },
+  {
+    "chunk_id": "POL15_exchange_policy::s00",
+    "document_id": "POL15_exchange_policy",
+    "document_title": "Exchange Policy",
+    "chunk_index": 0,
+    "chunk_text": "Apparel and footwear can be exchanged for a different size of the same product within the category's normal return window, subject to stock availability at the time of the request."
+  },
+  {
+    "chunk_id": "POL15_exchange_policy::s01",
+    "document_id": "POL15_exchange_policy",
+    "document_title": "Exchange Policy",
+    "chunk_index": 1,
+    "chunk_text": "An exchange does not generate a refund; instead the replacement ships once the original item is picked up, and if the requested size is unavailable the request automatically converts to a standard refund."
+  },
+  {
+    "chunk_id": "POL16_non_returnable_items::s00",
+    "document_id": "POL16_non_returnable_items",
+    "document_title": "Non-Returnable Items",
+    "chunk_index": 0,
+    "chunk_text": "Certain categories are marked non-returnable at the time of purchase, including innerwear, opened beauty products, perishable goods, and software or digital gift cards."
+  },
+  {
+    "chunk_id": "POL16_non_returnable_items::s01",
+    "document_id": "POL16_non_returnable_items",
+    "document_title": "Non-Returnable Items",
+    "chunk_index": 1,
+    "chunk_text": "These items are clearly labelled \"non-returnable\" on the product page before checkout, and only a genuine manufacturing defect qualifies them for a replacement rather than a standard return."
+  }
+]
