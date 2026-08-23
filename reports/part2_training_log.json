@@ -1,0 +1,28 @@
+{
+  "device": "mps",
+  "batch_size": 256,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "head_epochs": 12,
+  "head_val_acc_by_epoch": [
+    0.8505,
+    0.8741666666666666,
+    0.8803333333333333,
+    0.8823333333333333,
+    0.8843333333333333,
+    0.8861666666666667,
+    0.8876666666666667,
+    0.891,
+    0.8941666666666667,
+    0.8906666666666667,
+    0.8951666666666667,
+    0.898
+  ],
+  "head_val_acc_final": 0.898,
+  "head_training_seconds": 4.6,
+  "finetune_triggered": false,
+  "finetune_trigger_threshold": 0.8,
+  "finetune_val_acc": null,
+  "finetune_epochs": 0,
+  "finetune_learning_rate": null
+}
