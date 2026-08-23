@@ -1,0 +1,6 @@
+feature,importance,importance_mean
+cat__payment_method_COD,0.17880594560165544,
+num__price_inr,0.1322672815442754,
+num__delivery_distance_km,0.09567454153021014,
+num__customer_tenure_days,0.09001289001920364,
+num__delivery_days,0.08844907146116977,
