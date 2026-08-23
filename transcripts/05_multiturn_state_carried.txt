@@ -1,0 +1,79 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Multi-turn exchange: order id carried across turns
+Demonstrates : Task 9(d) -- a follow-up with no order id in its own text still resolves via state
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: Check order 2314 for me.
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "Check the return risk on order 3312 for me."
+   example intent  : return_risk
+   similarity      : 0.5428
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : return_risk
+   runner-up       : "Run a risk check on order number 6001." (return_risk) @ 0.5047
+   runner-up       : "Score the return risk for order 4521." (return_risk) @ 0.4898
+   order id        : 2314
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- TOOL NODE (return_risk_tool) --
+   {
+  "return_probability": 0.6462,
+  "risk_bucket": "Medium",
+  "threshold_rf": 0.5
+}
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> tool_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5).",
+  "source": "return_risk_tool",
+  "confidence": 0.6462
+}
+
+------------------------------------------------------------------------------
+TURN 2
+------------------------------------------------------------------------------
+USER: What is its return risk?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "How risky is order 782 in terms of a potential return?"
+   example intent  : return_risk
+   similarity      : 0.5926
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : return_risk
+   runner-up       : "Check the return risk on order 3312 for me." (return_risk) @ 0.5676
+   runner-up       : "Score the return risk for order 4521." (return_risk) @ 0.5594
+   order id        : 2314
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- TOOL NODE (return_risk_tool) --
+   {
+  "return_probability": 0.6462,
+  "risk_bucket": "Medium",
+  "threshold_rf": 0.5
+}
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> tool_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5).",
+  "source": "return_risk_tool",
+  "confidence": 0.6462
+}

@@ -1,0 +1,36 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Fresh conversation: the same follow-up alone, with no prior state
+Demonstrates : Task 9(d) -- a brand-new Conversation correctly has no memory of any other conversation
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: What is its return risk?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "How risky is order 782 in terms of a potential return?"
+   example intent  : return_risk
+   similarity      : 0.5926
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : return_risk
+   runner-up       : "Check the return risk on order 3312 for me." (return_risk) @ 0.5676
+   runner-up       : "Score the return risk for order 4521." (return_risk) @ 0.5594
+   order id        : None
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> tool_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "I need an order id to check return risk -- mention one like \"order 1234\" and I can look it up.",
+  "source": "return_risk_tool",
+  "confidence": 0.0
+}

@@ -1,0 +1,46 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Policy-shaped question the knowledge base cannot answer
+Demonstrates : Task 9(f) -- output-side groundedness check refuses rather than fabricating a policy
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: What is Flipkart's GST registration number?
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "How many days do I have to return a mobile phone?"
+   example intent  : policy
+   similarity      : 0.2887
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : policy
+   runner-up       : "Score the return risk for order 4521." (return_risk) @ 0.249
+   runner-up       : "Identify the catalogue category of this image." (product_category) @ 0.2287
+   order id        : None
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- RETRIEVAL NODE (top documents, deduped from top-3 chunks) --
+   [0.4462] POL10_reverse_pickup_eligibility :: "Reverse pickup, where a courier collects the item from the customer's address, is available for most pin codes covered by Flipkart's own logistics network."
+   [0.3389] POL06_cod_refund_timeline :: "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card."
+   [0.2750] POL03_electronics_return_window :: "Activated SIM-based devices are subject to an additional deactivation check before the refund is approved."
+
+-- OUTPUT GUARDRAIL (groundedness check) --
+   best similarity : 0.4462
+   threshold       : 0.5
+   grounded        : False
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> retrieval_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "I don't have a policy in my knowledge base that covers this with enough confidence to answer (best match scored 0.4462, below the 0.5 groundedness threshold). I'd rather say that than guess.",
+  "source": "policy_kb",
+  "confidence": 0.4462
+}

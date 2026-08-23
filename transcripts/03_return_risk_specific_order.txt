@@ -1,0 +1,43 @@
+==============================================================================
+FLIPKART ORDER INTELLIGENCE & SUPPORT ASSISTANT -- Part 3 transcript
+==============================================================================
+Transcript   : Return-risk question calling the real Part 1 model
+Demonstrates : Task 9(b) -- check_return_risk called with realistic order features
+LLM mode     : MOCK_LLM (deterministic; zero API keys; zero outbound network calls)
+==============================================================================
+
+------------------------------------------------------------------------------
+TURN 1
+------------------------------------------------------------------------------
+USER: Score the return risk for order 1024.
+
+-- INTENT NODE (nearest few-shot exemplar) --
+   nearest example : "Score the return risk for order 4521."
+   example intent  : return_risk
+   similarity      : 0.8093
+   routing floor   : 0.25 (below floor: False)
+   FINAL INTENT    : return_risk
+   runner-up       : "Check the return risk on order 3312 for me." (return_risk) @ 0.7063
+   runner-up       : "How risky is order 782 in terms of a potential return?" (return_risk) @ 0.6866
+   order id        : 1024
+
+-- INPUT GUARDRAIL (prompt-injection scan) --
+   blocked         : False
+   matched patterns: []
+
+-- TOOL NODE (return_risk_tool) --
+   {
+  "return_probability": 0.2611,
+  "risk_bucket": "Low",
+  "threshold_rf": 0.5
+}
+
+-- GRAPH PATH --
+   guard_node -> intent_node -> tool_node -> response_node
+
+-- FINAL STRUCTURED RESPONSE --
+   {
+  "answer": "Order 1024 has a 26.11% predicted probability of being returned, which is a LOW risk (threshold t*_rf = 0.5).",
+  "source": "return_risk_tool",
+  "confidence": 0.7389
+}
