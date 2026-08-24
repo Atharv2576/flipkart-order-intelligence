@@ -23,6 +23,8 @@ class Conversation:
         self.turn_index = 0
         self.order_id: int | None = None
         self.order_features: dict | None = None
+        self.previous_message: str | None = None
+        self.previous_tool_error: str | None = None
         self.history: list[dict] = []
 
     def ask(self, user_message: str, image_path: str | None = None) -> dict:
@@ -33,9 +35,13 @@ class Conversation:
             order_id=self.order_id,
             order_features=self.order_features,
             image_path=image_path,
+            previous_message=self.previous_message,
+            previous_tool_error=self.previous_tool_error,
         )
         self.order_id = result.get("order_id")
         self.order_features = result.get("order_features")
+        self.previous_message = user_message
+        self.previous_tool_error = result.get("tool_error")
         self.history.append({"role": "user", "content": user_message})
         self.history.append({"role": "assistant", "content": result["response"]["answer"]})
         return result

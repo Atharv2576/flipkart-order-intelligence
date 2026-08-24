@@ -1,0 +1,157 @@
+:root {
+  color-scheme: light;
+  --surface-0: #fcfcfb;
+  --surface-1: #ffffff;
+  --surface-2: #f4f3f0;
+  --border: #e4e2dc;
+  --text-primary: #17160f;
+  --text-secondary: #52514e;
+  --text-muted: #83817a;
+
+  --accent: #2a78d6;
+  --accent-soft: #eaf1fc;
+
+  --status-good: #0ca30c;
+  --status-good-soft: #e5f6e5;
+  --status-warning: #b6790a;
+  --status-warning-soft: #fdf1da;
+  --status-critical: #d03b3b;
+  --status-critical-soft: #fbe7e7;
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+
+  --font-sans: -apple-system, "Inter", "Public Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(20, 20, 15, 0.06), 0 1px 1px rgba(20, 20, 15, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface-0: #131311;
+    --surface-1: #1a1a17;
+    --surface-2: #211f1a;
+    --border: #34322b;
+    --text-primary: #f5f4ef;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8c8a80;
+
+    --accent: #3987e5;
+    --accent-soft: #16273e;
+
+    --status-good: #2fbf4f;
+    --status-good-soft: #142b17;
+    --status-warning: #d99a2b;
+    --status-warning-soft: #2e2412;
+    --status-critical: #e66767;
+    --status-critical-soft: #341717;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+/* Layout: a fixed 220px sidebar works on desktop/tablet, but on a phone it
+   eats more than half the screen. Below 700px it becomes a horizontal top
+   bar instead, so every screen (Orders' table included) gets its real
+   width back. */
+.app-shell {
+  display: flex;
+  height: 100vh;
+}
+.app-nav {
+  width: 220px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  background: var(--surface-1);
+  padding: 20px 12px;
+  overflow-y: auto;
+}
+.app-nav-links {
+  display: flex;
+  flex-direction: column;
+}
+.app-main {
+  flex: 1;
+  overflow: auto;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    flex-direction: column;
+    /* height stays 100vh -- .app-nav is content-sized (flex-shrink: 0
+       below) and .app-main takes the rest via flex: 1, so screens like the
+       Assistant chat (which relies on a bounded-height flex parent to pin
+       its input to the bottom and scroll messages internally) keep working
+       exactly as they do on desktop, just stacked instead of side by side. */
+  }
+  .app-nav {
+    width: 100%;
+    flex-shrink: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    overflow-y: visible;
+  }
+  .app-nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+}

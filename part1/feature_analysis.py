@@ -39,6 +39,22 @@ def permutation_importance_report(pipeline, X_test, y_test, n_repeats=10, random
     )
 
 
+def raw_column_for(transformed_name: str, categorical_features: list[str]) -> str:
+    """Maps a transformed feature name (e.g. "num__price_inr" or
+    "cat__payment_method_COD") back to its raw source column, so impurity
+    and permutation importance -- computed in two different feature spaces
+    -- can actually be compared side by side.
+    """
+    if transformed_name.startswith("num__"):
+        return transformed_name[len("num__") :]
+    if transformed_name.startswith("cat__"):
+        suffix = transformed_name[len("cat__") :]
+        for col in categorical_features:
+            if suffix.startswith(col + "_"):
+                return col
+    return transformed_name
+
+
 def run_analysis():
     df = load_dataset()
     X_train, X_test, y_train, y_test = split_data(df)
@@ -86,8 +102,14 @@ if __name__ == "__main__":
     report = render_report(result)
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     (REPORTS_DIR / "part1_feature_importance.md").write_text(report, encoding="utf-8")
-    comparison = result["impurity_top5"].merge(
-        result["permutation_full"], on="feature", how="left"
+    from part1.common import CATEGORICAL_FEATURES
+
+    impurity_with_raw = result["impurity_top5"].copy()
+    impurity_with_raw["raw_feature"] = impurity_with_raw["feature"].apply(
+        lambda f: raw_column_for(f, CATEGORICAL_FEATURES)
+    )
+    comparison = impurity_with_raw.merge(
+        result["permutation_full"].rename(columns={"feature": "raw_feature"}), on="raw_feature", how="left"
     )
     comparison.to_csv(REPORTS_DIR / "part1_importance_comparison.csv", index=False)
     print(report)

@@ -37,7 +37,7 @@ USER: Score the return risk for order 1024.
 
 -- FINAL STRUCTURED RESPONSE --
    {
-  "answer": "Order 1024 has a 26.11% predicted probability of being returned, which is a LOW risk (threshold t*_rf = 0.5).",
+  "answer": "Order 1024 has a 26.11% predicted probability of being returned, which is a LOW risk (threshold t*_rf = 0.5). The strongest contributors, per this model's own held-out permutation-importance analysis, are it was paid for using Prepaid_Card, which this model's permutation-importance analysis found to be by far the strongest single predictor of return risk; its price of \u20b96,129; the customer's history of 0 previous return(s).",
   "source": "return_risk_tool",
   "confidence": 0.7389
 }

@@ -16,6 +16,8 @@ class AgentState(TypedDict, total=False):
     order_id: Optional[int]
     order_features: Optional[dict]
     image_path: Optional[str]
+    previous_message: Optional[str]
+    previous_tool_error: Optional[str]
 
     blocked: bool
     blocked_patterns: list[str]
@@ -30,6 +32,12 @@ class AgentState(TypedDict, total=False):
     tool_name: Optional[str]
     tool_result: Optional[dict]
     tool_error: Optional[str]
+    missing_fields: Optional[list[str]]
+
+    retrieval_mode: Optional[str]
+    clause_evidence: Optional[list[dict]]
+    structured_filters: Optional[dict]
+    structured_filter_results: Optional[list[dict]]
 
     response: dict
     node_path: Annotated[list[str], operator.add]

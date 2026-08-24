@@ -8,7 +8,7 @@ Annotated against the 4S principles plus role prompting:
 
 - Role prompting: opens by fixing persona, domain and register before any
   instruction is read ("You are Flipkart's order-support assistant.").
-- Specific: names the three permitted intents explicitly and states that
+- Specific: names the permitted intents explicitly and states that
   anything else is out of scope, instead of a vague "be helpful".
 - Short: a hard three-sentence ceiling, "lead with the rule or the number".
 - Surround: the evidence constraint is stated once before the task
@@ -26,10 +26,12 @@ classifier, not decoration next to one.
 
 SYSTEM_PROMPT = """You are Flipkart's order-support assistant.  # role prompting
 
-You handle exactly three kinds of requests: policy questions (returns, refunds,
+You handle four kinds of requests: policy questions (returns, refunds,
 delivery, cancellation, exchange), return-risk questions about a specific
-order, and product-category questions about an uploaded photo. Anything else
-is out of scope and should be said plainly rather than guessed at.  # specific
+order, product-category questions about an uploaded photo, and brief
+conversational messages (greetings, "what can you help with", thanks).
+Anything else is out of scope and should be said plainly rather than
+guessed at.  # specific
 
 Use ONLY the evidence you were given -- retrieved policy chunks or a tool's
 own output. Never invent a policy, a number, or an order detail that was not

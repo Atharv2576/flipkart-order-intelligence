@@ -45,14 +45,34 @@ def _get_orders_df() -> pd.DataFrame:
 
 def lookup_order(order_id: int) -> dict | None:
     """Real order features from the committed dataset, with the label
-    stripped -- the tool must never see the true `returned` value.
+    stripped -- the tool must never see the true `returned` value. A missing
+    `rating_given` (about 13% of rows, by the Part 1 generator's design)
+    comes back as `None` rather than NaN, since NaN is not valid JSON and
+    this dict crosses the API boundary; pandas treats None as a normal
+    missing numeric value everywhere downstream (the model's imputer
+    included), so nothing about the risk scoring changes.
     """
     df = _get_orders_df()
     row = df.loc[df["order_id"] == order_id]
     if row.empty:
         return None
     features = row.iloc[0][FEATURES].to_dict()
+    if pd.isna(features.get("rating_given")):
+        features["rating_given"] = None
     return features
+
+
+# The subset of FEATURES that's both realistically extractable from free
+# text (part3/slot_extraction.py) and meaningfully important per Part 1's
+# own permutation-importance report -- everything else (customer tenure,
+# discount, previous-order counts, ...) is imputed exactly as it already is
+# for a real order's missing rating_given, so a slot-filled conversation
+# isn't forced to interrogate the user for low-signal fields.
+REQUIRED_FOR_ESTIMATE = ["product_category", "price_inr", "payment_method", "delivery_days"]
+
+
+def missing_required_fields(order_features: dict) -> list[str]:
+    return [field for field in REQUIRED_FOR_ESTIMATE if order_features.get(field) is None]
 
 
 def risk_bucket(probability: float, threshold_rf: float) -> str:

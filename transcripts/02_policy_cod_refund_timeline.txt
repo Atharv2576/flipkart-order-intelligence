@@ -27,6 +27,8 @@ USER: When will I get my refund if I paid cash on delivery?
 
 -- RETRIEVAL NODE (top documents, deduped from top-3 chunks) --
    [0.6046] POL06_cod_refund_timeline :: "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card."
+   [0.4304] SKU0050 :: "The Coalmark Compact Sandal 671 (Footwear > Sandal, ₹1236) can be returned within 12 days of delivery, supports exchange, is available for Cash on Delivery, and carries no warranty."
+   [0.3977] SKU0042 :: "The Ambient Durable Sneaker 470 (Footwear > Sneaker, ₹4191) can be returned within 12 days of delivery, supports exchange, is available for Cash on Delivery, and carries no warranty."
 
 -- OUTPUT GUARDRAIL (groundedness check) --
    best similarity : 0.6046
@@ -38,7 +40,7 @@ USER: When will I get my refund if I paid cash on delivery?
 
 -- FINAL STRUCTURED RESPONSE --
    {
-  "answer": "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card. [Source: Cash on Delivery Refund Timeline (POL06_cod_refund_timeline)]",
+  "answer": "For orders paid by cash on delivery, refunds are issued to the customer's bank account or Flipkart wallet rather than reversed to a card. [Source: Cash on Delivery Refund Timeline (POL06_cod_refund_timeline)] [Related policies: Coalmark Compact Sandal 671 (SKU0050), Ambient Durable Sneaker 470 (SKU0042)]",
   "source": "policy_kb",
   "confidence": 0.6046
 }

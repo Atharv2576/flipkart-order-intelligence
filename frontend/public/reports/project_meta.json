@@ -1,0 +1,1 @@
+{"orders_total": 6000, "return_rate": 0.2275, "return_risk_test_roc_auc": 0.6203081348712416, "return_risk_threshold": 0.5, "image_classifier_test_accuracy": 0.8875, "policy_documents": 16}

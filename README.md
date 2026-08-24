@@ -288,7 +288,7 @@ Full report: [`reports/part2_evaluation.md`](reports/part2_evaluation.md)
 |---|---:|
 | train | 54,000 |
 | validation (stratified, 600/class) | 6,000 |
-| test (untouched until final evaluation) | 10,000 |
+| test (labels/metrics unused until final evaluation) | 10,000 |
 
 Pretrained **ResNet-18**; `conv1`/`bn1`/`layer1`-`layer4` frozen, a fresh
 `Linear(512, 10)` head trained via Adam (lr=1e-3, batch 256, 12 epochs).
@@ -303,7 +303,10 @@ cache all 70,000 images, then **4.6s** to train the head for all 12 epochs.
 | after feature extraction | **89.80%** |
 | fine-tuning | not run -- already cleared the 80% bar |
 
-**Final test accuracy: 88.75%** on the untouched 10,000-image test split.
+**Final test accuracy: 88.75%** on the 10,000-image test split, whose labels
+were never used for any decision until this evaluation (its pixels were
+forward-passed through the frozen backbone during the caching step above,
+same as train/val, but that cache is never read again after this point).
 Full confusion matrix: [`reports/part2_confusion_matrix.csv`](reports/part2_confusion_matrix.csv).
 
 **Confusion patterns**, read directly off the matrix: `Shirt ↔ T-shirt/top`
@@ -483,10 +486,36 @@ All 8 transcripts are indexed in [`transcripts/INDEX.md`](transcripts/INDEX.md).
 
 ---
 
+## Part 3 upgrade -- flexible natural-language agent
+
+The description above is still accurate for the required rubric (16-doc KB, sentence
+chunking, FAISS, the three required intents, LangGraph's five nodes, MOCK_LLM,
+guardrails, 8 transcripts). On top of it, unmodified, the agent now also handles
+arbitrary phrasing rather than only close paraphrases of its few-shot exemplars:
+
+- A fourth, additive graph route (`conversational`) for greeting/help/thanks/farewell,
+  resolved by the same nearest-few-shot-exemplar mechanism as the three required
+  intents -- not a keyword table.
+- Multi-clause retrieval for comparison ("compare footwear and electronics returns")
+  and multi-part questions, each clause answered and cited independently.
+- A 55-SKU synthetic product catalog (`data/product_catalog.json`, its own FAISS index
+  at `data/product_index/`, separate from the required policy index), searchable both
+  semantically and via real structured filters ("which products support COD").
+- Free-text slot-filling for return-risk that accumulates order details across turns
+  and asks only for whatever's still missing, plus an explanation grounded in Part 1's
+  own permutation-importance report rather than an invented cause.
+
+Full architecture, the honest account of two bugs found and fixed while building this
+(a lexical intent collision and an over-eager clause split), and a 25-query
+unseen-question audit: [`reports/ai_agent_upgrade_report.md`](reports/ai_agent_upgrade_report.md)
+and [`reports/chatbot_upgrade_evaluation.md`](reports/chatbot_upgrade_evaluation.md).
+
+---
+
 ## Tests and validation
 
 ```bash
-pytest                       # 36 tests across Parts 1-3
+pytest                       # 55 tests across Parts 1-3 + the agent upgrade
 python3 validate_project.py  # 37 live acceptance checks
 ```
 

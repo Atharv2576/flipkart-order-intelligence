@@ -1,6 +1,6 @@
-feature,importance,importance_mean
-cat__payment_method_COD,0.17880594560165544,
-num__price_inr,0.1322672815442754,
-num__delivery_distance_km,0.09567454153021014,
-num__customer_tenure_days,0.09001289001920364,
-num__delivery_days,0.08844907146116977,
+feature,importance,raw_feature,importance_mean
+cat__payment_method_COD,0.17880594560165544,payment_method,0.0980163669484057
+num__price_inr,0.1322672815442754,price_inr,0.010203460688897492
+num__delivery_distance_km,0.09567454153021014,delivery_distance_km,-0.0002149594382604647
+num__customer_tenure_days,0.09001289001920364,customer_tenure_days,-0.005490949180269633
+num__delivery_days,0.08844907146116977,delivery_days,0.0025712151925743167

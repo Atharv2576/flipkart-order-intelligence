@@ -37,7 +37,7 @@ USER: Check order 2314 for me.
 
 -- FINAL STRUCTURED RESPONSE --
    {
-  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5).",
+  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5). The strongest contributors, per this model's own held-out permutation-importance analysis, are it was paid for using COD, which this model's permutation-importance analysis found to be by far the strongest single predictor of return risk; its price of \u20b91,269; the customer's history of 2 previous return(s).",
   "source": "return_risk_tool",
   "confidence": 0.6462
 }
@@ -73,7 +73,7 @@ USER: What is its return risk?
 
 -- FINAL STRUCTURED RESPONSE --
    {
-  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5).",
+  "answer": "Order 2314 has a 64.62% predicted probability of being returned, which is a MEDIUM risk (threshold t*_rf = 0.5). The strongest contributors, per this model's own held-out permutation-importance analysis, are it was paid for using COD, which this model's permutation-importance analysis found to be by far the strongest single predictor of return risk; its price of \u20b91,269; the customer's history of 2 previous return(s).",
   "source": "return_risk_tool",
   "confidence": 0.6462
 }
